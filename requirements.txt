@@ -1,2 +1,4 @@
-aiogram==2.22.1
+aiogram~=2.22.1
 fastapi[all]
+environs~=8.0.0
+loguru~=0.4.1
