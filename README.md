@@ -10,7 +10,7 @@ $ pip install -r requirements.txt
 ```
 
 ### Enviroment variables
-Namunadagi `.env.dist` faylidan nusxa `.env` fayl yaratib undagi __ADMINS__, __BOT_TOKEN__, __WEB_DOMAIN__ o'zgaruvchilarini kiriting:
+Namunadagi `.env.dist` faylidan nusxa `.env` fayl yaratib undagi __ADMINS__, __BOT_TOKEN__, __WEB_DOMAIN__, __PRETTY_LOGGER__ o'zgaruvchilarini kiriting:
 
 ```bash
 $ cp .env.dist .env

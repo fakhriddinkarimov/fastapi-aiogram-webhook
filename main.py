@@ -3,14 +3,15 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from aiogram import types, Dispatcher, Bot
 from app import dp, bot, on_startup, on_shutdown
-from data.config import WEBHOOK_PATH
+from data.config import WEBHOOK_PATH, PRETTY_LOGGER
 from typing import Dict
 from logger import CustomizeLogger
 
 
 app = FastAPI(title="Main", docs_url=None, redoc_url=None, debug=False)
-logger = CustomizeLogger.make_logger()
-app.logger = logger
+if PRETTY_LOGGER:
+    logger = CustomizeLogger.make_logger()
+    app.logger = logger
 
 
 @app.on_event("startup")
@@ -32,7 +33,8 @@ async def bot_webhook(update: Dict):
         await dp.process_update(updater)
         return {"ok": True}
     except Exception as e:
-        app.logger.error(e)
+        if PRETTY_LOGGER:
+            app.logger.error(e)
         return {"ok": False}
         
     

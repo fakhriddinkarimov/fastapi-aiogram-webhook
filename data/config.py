@@ -15,3 +15,5 @@ token_hash = hashlib.md5(BOT_TOKEN.encode())
 
 WEBHOOK_PATH = "/bot/" + token_hash.hexdigest()
 WEBHOOK_URL = WEB_DOMAIN + WEBHOOK_PATH
+
+PRETTY_LOGGER = env.bool("PRETTY_LOGGER")
