@@ -1,8 +1,9 @@
-import logging
 import sys
+import json
+import logging
 from pathlib import Path
 from loguru import logger
-import json
+from typing import Union
 
 
 class InterceptHandler(logging.Handler):
@@ -36,7 +37,7 @@ class InterceptHandler(logging.Handler):
 class CustomizeLogger:
 
     @classmethod
-    def make_logger(cls, config_path: Path|None = None):
+    def make_logger(cls, config_path: Union[Path, None] = None):
         if config_path is None:
             config_path = Path(__file__).with_name("logging_config.json")
         config = cls.load_logging_config(config_path)
