@@ -8,7 +8,7 @@ from typing import Dict
 from logger import CustomizeLogger
 
 
-app = FastAPI(title="Main", docs_url=None, redoc_url=None, debug=False)
+app = FastAPI(title="Main", docs_url=None, redoc_url=None, openapi_url=None, debug=False)
 if PRETTY_LOGGER:
     logger = CustomizeLogger.make_logger()
     app.logger = logger
